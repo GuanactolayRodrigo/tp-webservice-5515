@@ -1,0 +1,55 @@
+<main class="container-fluid px-4 py-5">
+    <section class="text-center mb-5">
+        <h2 class="mb-4">Catálogo de Vehículos</h2>
+        <p class="text-muted">Selecciona una marca para ver sus modelos disponibles.</p>
+    </section>
+
+    <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center">
+        <div class="col" *ngFor="let marca of marcas">
+            <button class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm text-truncate" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modalModelos"
+                    (click)="abrirModalModelos(marca.id, marca.name)">
+                {{ marca.name }}
+            </button>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="modalModelos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title fw-bold">
+                    Modelos de {{ marcaSeleccionada }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body p-0">
+                <div *ngIf="cargandoModelos" class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+
+                <ul class="list-group list-group-flush" *ngIf="!cargandoModelos && modelosSeleccionados.length > 0">
+                    <li class="list-group-item" *ngFor="let modelo of modelosSeleccionados">
+                        <i class="bi bi-car-front me-2 text-secondary"></i> 
+                        {{ modelo.name }} 
+                    </li>
+                </ul>
+
+                <div class="text-center py-4" *ngIf="!cargandoModelos && modelosSeleccionados.length === 0 && marcaSeleccionada !== ''">
+                    <p class="text-muted mb-0">No se encontraron modelos para esta marca.</p>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
