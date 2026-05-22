@@ -1,0 +1,64 @@
+<main class="container px-4 py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4"> 
+            
+            <div class="card border-0 rounded-1 shadow" style="background-color: #1f6411; color: white;">
+                
+                <div class="card-header py-3 border-0" style="background-color: #0c4927;">
+                    <h5 class="mb-0 fw-light">Conversor De Divisas</h5>
+                </div>
+                
+                <div class="card-body p-4">
+                    
+                    <div class="mb-3">
+                        <label class="form-label small mb-1">Cantidad: </label>
+                        <input type="number" 
+                               class="form-control rounded-0 text-secondary" 
+                               placeholder="Cantidad" 
+                               [(ngModel)]="montoOrigen" 
+                               min="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small mb-1">De: </label>
+                        <select class="form-select rounded-0 text-secondary" [(ngModel)]="monedaOrigen">
+                            <option *ngFor="let moneda of listaMonedas" [value]="moneda.code">
+                                {{ moneda.code }} {{ moneda.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small mb-1">A: </label>
+                        <select class="form-select rounded-0 text-secondary" [(ngModel)]="monedaDestino">
+                            <option *ngFor="let moneda of listaMonedas" [value]="moneda.code">
+                                {{ moneda.code }} {{ moneda.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <input type="number" 
+                               class="form-control rounded-0 bg-white text-dark fw-bold" 
+                               [value]="montoDestino" 
+                               readonly>
+                    </div>
+
+                    <button class="btn w-100 rounded-1 fw-bold d-flex justify-content-center align-items-center gap-2 py-2" 
+                            style="background-color: #3b66db; color: #ffffff;"
+                            (click)="ejecutarConversion()" 
+                            [disabled]="cargando || listaMonedas.length === 0">
+                        
+                        <span *ngIf="!cargando">Convertir</span>
+                        <span *ngIf="cargando">Calculando...</span>
+                        
+                        <i *ngIf="!cargando" class="bi bi-arrow-right fw-bold fs-5"></i>
+                        <div *ngIf="cargando" class="spinner-border spinner-border-sm" role="status"></div>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

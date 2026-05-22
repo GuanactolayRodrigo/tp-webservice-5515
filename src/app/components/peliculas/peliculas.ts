@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { PeliculasService } from '../../services/peliculas';
 import { Pelicula } from '../../modals/pelicula';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ export class PeliculasComponent implements OnInit {
 
   peliculaSeleccionada: Pelicula | null = null; 
 
-  constructor(private peliculasService: PeliculasService) {}
+  constructor(private peliculasService: PeliculasService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.cargarPeliculas();
@@ -24,6 +24,7 @@ export class PeliculasComponent implements OnInit {
     this.peliculasService.getPeliculas().subscribe({
       next: (data) => {
         this.peliculas = data; 
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Ocurrió un error al consumir la API:', err);
@@ -33,5 +34,6 @@ export class PeliculasComponent implements OnInit {
   //detalles
   seleccionarPelicula(pelicula: Pelicula) {
     this.peliculaSeleccionada = pelicula;
+    this.cdr.detectChanges();
   }
 }

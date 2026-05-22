@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { AutosService } from '../../services/autos';
 import { Marca, Modelo } from '../../modals/auto';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ export class AutosComponent implements OnInit {
   // cache
   private cacheModelos: Map<string, Modelo[]> = new Map();
 
-  constructor(private autosService: AutosService) {}
+  constructor(private autosService: AutosService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.cargarMarcas();
@@ -29,6 +29,7 @@ export class AutosComponent implements OnInit {
     this.autosService.getMarcas().subscribe({
       next: (data) => {
         this.marcas = data;
+        this.cdr.detectChanges();
       },
       error: (err) => console.error('Error al cargar marcas:', err)
     });
@@ -39,8 +40,9 @@ export class AutosComponent implements OnInit {
     this.modelosSeleccionados = []; 
 
     if (this.cacheModelos.has(marcaId)) {
-      console.log(`Cargando modelos de ID ${marcaId} desde el CACHÉ local`);
+      console.log(`Cargando modelos de ID ${marcaId} desde el CACHE local`);
       this.modelosSeleccionados = this.cacheModelos.get(marcaId)!;
+      this.cdr.detectChanges();
     } else {
       console.log(`Llamando a la API para modelos de ID ${marcaId}`);
       this.cargandoModelos = true;
@@ -50,6 +52,7 @@ export class AutosComponent implements OnInit {
           this.modelosSeleccionados = data;
           this.cacheModelos.set(marcaId, data);
           this.cargandoModelos = false;
+          this.cdr.detectChanges();
         },
         error: (err) => {
           console.error('Error al cargar modelos:', err);
