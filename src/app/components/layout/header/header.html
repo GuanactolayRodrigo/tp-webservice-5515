@@ -1,44 +1,45 @@
-<nav class="navbar navbar-expand-lg bg-primary-subtle shadow-sm border-bottom" data-bs-theme="dark">
-  <div class="container-fluid px-4">
-    
-    <a class="navbar-brand fw-bold text-white d-flex align-items-center" >
-      TP Angular
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Desplegar navegación">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav text-center mt-3 mt-lg-0">
-        
-        <li class="nav-item w-100 mb-2 mb-lg-0">
-          <a class="btn btn-outline-warning w-100 me-lg-3 fw-bold" [routerLink]="['Top100Peliculas']" routerLinkActive="active" >
-            PELICULAS
-          </a>
-        </li>
-        <li class="nav-item w-100 mb-2 mb-lg-0">
-          <a class="btn btn-outline-warning w-100 me-lg-3 fw-bold" [routerLink]="['Autos']" routerLinkActive="active" >
-            MARCAS
-          </a>
-        </li>
-        <li class="nav-item w-100 mb-2 mb-lg-0">
-          <a class="btn btn-outline-warning w-100 me-lg-3 fw-bold" [routerLink]="['Conversor']" routerLinkActive="active" >
-            CONVERSOR MONEDAS
-          </a>
-        </li>
-        <li class="nav-item w-100">
-          <a class="btn btn-outline-warning w-100 fw-bold" [routerLink]="['Text-to-Audio']" routerLinkActive="active" >
-            CONVERSOR TEXTO
-          </a>
-        </li>
-         <li class="nav-item w-100">
-          <a class="btn btn-outline-warning w-100 fw-bold" >
-            API A ELECCION
-          </a>
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="bg-primary-subtle border-top border-primary-subtle" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        <div class="container-fluid">
+            
+            <i class="ic fa-solid fa-laptop-code fa-xl" style="color: rgb(41, 212, 175);"></i>
+            
+            <a class="logo ms-2 text-decoration-none text-white fs-4 fw-bold" [routerLink]="['Conversor']" routerLinkActive="active">TP Web Services</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            Conversores
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['Conversor']" routerLinkActive="active">Conversor de Divisas</a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" [routerLink]="['Text-to-Audio']" routerLinkActive="active">Conversor de Texto a Audio</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['Buscador-Musica']" routerLinkActive="active">Musica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['Top100Peliculas']" routerLinkActive="active">Peliculas</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['Autos']" routerLinkActive="active">Marcas</a>
+                    </li>     
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
