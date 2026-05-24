@@ -1,0 +1,39 @@
+<form class="container mt-4">
+  
+  <div class="mb-3">
+    <label for="texto" class="form-label">Texto original:</label>
+    <input type="text" name="texto" id="texto" class="form-control" [(ngModel)]="textoOriginal">
+  </div>
+  
+  <div class="mb-3 row">
+    <div class="col-sm-8 mb-2 mb-sm-0">
+      <label for="idioma" class="form-label">Idioma destino:</label>
+      <select name="idioma" id="idioma" class="form-select" [(ngModel)]="idiomaSeleccionado">
+        <option *ngFor="let lang of idiomas" [value]="lang.code">
+          {{ lang.language }}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-4 d-flex align-items-end">
+      <button type="button" class="btn btn-secondary w-100" (click)="traducirTexto()">
+        Traducir
+      </button>
+    </div>
+  </div>
+
+  <div class="mb-4" *ngIf="textoTraducido">
+    <label class="form-label text-success fw-bold">Texto traducido:</label>
+    <div class="p-3 border rounded bg-light">
+      {{ textoTraducido }}
+    </div>
+  </div>
+
+  <div class="mb-3 d-flex flex-wrap gap-3 align-items-center">
+    <button type="button" class="btn btn-primary" (click)="convertirAudio()" [disabled]="!textoOriginal">
+      Convertir a Audio
+    </button>
+    
+    <audio #reproductor controls></audio>
+  </div>
+
+</form>
