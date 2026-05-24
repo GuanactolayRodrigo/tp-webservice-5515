@@ -1,8 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectorRef, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AudioService } from '../../services/audio';
-// 1. Importamos TU servicio
 import { TraductorService } from '../../services/traductor'; 
 
 @Component({
