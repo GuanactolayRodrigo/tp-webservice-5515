@@ -1,0 +1,78 @@
+<main>
+    <section class="text-center text-white py-5" style="background-color: #113d5c;">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold mb-3 text-white">Trabajo Práctico Web Services</h1>
+            <p class="fs-4 text-white-50">Explorando el consumo de APIs con Angular</p>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h3 class="text-center fw-bold mb-4 text-secondary">Lo que encontrarás en nuestro menú de navegación.</h3>
+        
+        <div id="carouselExampleIndicators" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
+            </div>
+
+            <div class="carousel-inner text-center">
+
+                <div class="carousel-item active">
+                    <div class="p-5 bg-dark text-white"> 
+                        <h2><i class="bi bi-film me-2"></i>Sección Peliculas</h2>
+                        <p class="fs-5 mt-3">Navega a nuestra pestaña de peliculas para ver el Top 100 actual, leer sinopsis y conocer datos curiosos del cine.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-dark" style="background-color: #4f81df;">
+                        <h2><i class="bi bi-car-front-fill me-2"></i>Sección Marcas</h2>
+                        <p class="fs-5 mt-3">Navega por las marcas y modelos de los fabricantes de autos mas reconocidos a nivel mundial.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-white" style="background-color: #198754;"> 
+                        <h2><i class="bi bi-currency-exchange me-2"></i>Sección Monedas</h2>
+                        <p class="fs-5 mt-3">Consulta el valor de distintas divisas al instante usando nuestra integración de tipos de cambio actualizados.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-dark" style="background-color: #ffc107;"> 
+                        <h2><i class="bi bi-mic-fill me-2"></i>Sección Texto a Audio</h2>
+                        <p class="fs-5 mt-3">Escribe un texto en español, elegi un idioma para traducirlo  y escuchalo en un audio traducido.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-white" style="background-color: #dc3545;"> 
+                        <h2><i class="bi bi-music-note-beamed me-2"></i>Sección Música</h2>
+                        <p class="fs-5 mt-3">Busca el nombre de tus canciones favoritas y escucha un preview directo desde los servidores de Deezer.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </section>
+    <section class="container my-5 py-4 border-top border-bottom text-center">
+        <div class="linea">
+            <h2 class="display-5 fw-bold" style="color: rgb(41, 72, 212);">
+                <span id="numero">{{ contador }}</span>+ visitantes
+            </h2>
+            <p class="text-muted fs-5">Personas han utilizado nuestras herramientas interactivas.</p>
+        </div>
+    </section>
+</main>

@@ -4,6 +4,7 @@ import { AutosComponent } from './components/autos/autos';
 import { ConversorComponent } from './components/conversor/conversor';
 import { AudioComponent } from './components/audio/audio';
 import { BuscadorMusicaComponent } from './components/buscador-musica/buscador-musica';
+import { HomeComponent } from './components/layout/home/home';
 
 
 export const routes: Routes = [
@@ -21,5 +22,8 @@ export const routes: Routes = [
     },
     {
         path: 'Buscador-Musica', component: BuscadorMusicaComponent
+    },
+    {
+        path: 'Home', component: HomeComponent
     }
 ];
