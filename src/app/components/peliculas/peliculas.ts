@@ -27,7 +27,7 @@ export class PeliculasComponent implements OnInit {
         this.cdr.detectChanges();
       },
       error: (err) => {
-        console.error('Ocurrió un error al consumir la API:', err);
+        console.error('Error al consumir la API:', err);
       }
     });
   }

@@ -8,6 +8,9 @@ import { HomeComponent } from './components/layout/home/home';
 
 
 export const routes: Routes = [
+    { 
+        path: '', component: HomeComponent, pathMatch: 'full' 
+    },
     {
         path: 'Top100Peliculas', component: PeliculasComponent
     },

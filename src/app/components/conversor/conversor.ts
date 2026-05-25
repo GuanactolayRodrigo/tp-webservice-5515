@@ -30,7 +30,7 @@ export class ConversorComponent implements OnInit {
   cargarListaMonedas() {
     this.conversorService.getMonedas().subscribe({
       next: (data) => {
-        if (data && data.currencies) {
+        
           this.listaMonedas = Object.keys(data.currencies).map(clave => {
             return {
               code: clave,
@@ -38,12 +38,9 @@ export class ConversorComponent implements OnInit {
             };
           });
           this.cdr.detectChanges();
-        } else {
-          console.warn('solicitud de peticiones superada o respuesta inesperada al cargar monedas:', data);
-        }
       },
       error: (err) => {
-        console.error('Error HTTP al intentar conectar con la API:', err);
+        console.error('Error al intentar conectar con la API:', err);
       }
     });
   }
@@ -54,15 +51,14 @@ export class ConversorComponent implements OnInit {
     this.cargando = true;
     this.conversorService.convertir(this.monedaOrigen, this.monedaDestino, this.montoOrigen).subscribe({
       next: (data) => {
-        console.log('Respuesta de la conversiom:', data);
         if (data && data.result) {
-          this.montoDestino = data.result;
+          this.montoDestino = Number(data.result.toFixed(2));
         }
         this.cargando = false;
         this.cdr.detectChanges();
       },
       error: (err) => {
-        console.error('Error en la conversión HTTP:', err);
+        console.error('Error en la conversion', err);
         this.cargando = false;
       }
     });

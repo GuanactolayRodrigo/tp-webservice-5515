@@ -37,11 +37,15 @@
                         </select>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text rounded-0 bg-light text-secondary border-0 fw-bold">
+                            {{ monedaDestino }}
+                        </span>
+                        
                         <input type="number" 
-                               class="form-control rounded-0 bg-white text-dark fw-bold" 
-                               [value]="montoDestino"
-                               readonly  >
+                            class="form-control rounded-0 bg-white text-dark fw-bold border-0 ps-2" 
+                            [value]="montoDestino"
+                            readonly>
                     </div>
 
                     <button class="btn w-100 rounded-1 fw-bold d-flex justify-content-center align-items-center gap-2 py-2" 
