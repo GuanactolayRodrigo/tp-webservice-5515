@@ -19,11 +19,11 @@ export class TraductorService {
       'Content-Type': 'application/json'
     });
   }
-
+  //Lista de idiomas soportados por la API de traducción
   getIdiomasSoportados(): Observable<any> {
     return this.http.get(`${this.baseUrl}/support-languages`, { headers: this.getHeaders() });
   }
-
+  // Método para traducir texto a un idioma específico
   traducir(texto: string, idiomaDestino: string): Observable<any> {
     const body = {
       from: 'auto',
