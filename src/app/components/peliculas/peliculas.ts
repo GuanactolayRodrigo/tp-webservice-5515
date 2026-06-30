@@ -19,7 +19,7 @@ export class PeliculasComponent implements OnInit {
   ngOnInit(): void {
     this.cargarPeliculas();
   }
-
+  // caer peliculas
   cargarPeliculas() {
     this.peliculasService.getPeliculas().subscribe({
       next: (data) => {
